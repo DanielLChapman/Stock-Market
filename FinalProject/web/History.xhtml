@@ -1,0 +1,55 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    
+    <h:head>
+        <title>TODO supply a title</title>
+        <script type="text/javascript" src="jquery-1.10.1.js"></script> 
+        <script type="text/javascript" src="searchAjax.js"></script> 
+          <link rel="stylesheet" href="searchStyle.css" />
+    </h:head>
+    <h:body>
+        <div id="header" class="container">
+            <div id="logo">
+                <h1><a href="#">Stock Market</a></h1>
+            </div>
+            <div id="menu">
+                <ul>
+                    <li><h:outputText value="#{beans.getUsername()}"/></li>
+                    <li><span id="money" style="color:green">Money:</span><h:outputText id="moneyText" value="#{beans.getMoney()}"/></li>
+                    <li><a href="Display.xhtml">Return To Main</a></li>
+                </ul>
+            </div>
+        </div>
+            <div id ="banner"><h3>Purchase History for user <h:outputText id="moneyText" value="#{beans.getUsername()}"/></h3></div>
+            <div class="container">
+                <div id="history2"></div>
+                <div id="history3"></div>
+            <div id ="history">
+                
+            </div>
+             
+            </div>
+            <div id="button" onclick="getHistory2(); updateCSS();">
+                    <h3>View More</h3>
+                </div>
+            <div id="button-final" onclick="getHistory3();">
+                    <h3>View All</h3>
+                </div>
+            <script>
+                $(function() {
+                getHistory();    
+            });
+            </script>
+            <script type="text/javascript">
+            function updateCSS() {
+                $('footer').css({"bottom":"-40px"});
+                $('#button').css({"visibility":"hidden"});
+                $('#button-final').css({"visibility":"visible"});
+            }
+            </script>
+        <div id = "footer">
+      <h1>© <a href="https://github.com/RustyRadio/" >RustyRadio</a> 2013. Source code located on github page. Free to use, spread and change.</h1>
+    </div>
+    </h:body>
+</html>

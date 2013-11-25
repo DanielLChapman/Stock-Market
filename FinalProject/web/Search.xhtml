@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    
+    <h:head>
+        <title>TODO supply a title</title>
+        <script type="text/javascript" src="jquery-1.10.1.js"></script> 
+        <script type="text/javascript" src="searchAjax.js"></script> 
+          <link rel="stylesheet" href="searchStyle.css" />
+    </h:head>
+    <h:body>
+        <div id="header" class="container">
+            <div id="logo">
+                <h1><a href="#">Stock Market</a></h1>
+            </div>
+            <div id="menu">
+                <ul>
+                    <li><h:outputText value="#{beans.getUsername()}"/></li>
+                    <li><span id="money" style="color:green">Money:</span><h:outputText id="moneyText" value="#{beans.getMoney()}"/></li>
+                    <li><a href="Display.xhtml">Return To Main</a></li>
+                </ul>
+            </div>
+        </div>
+            <div id ="banner"><h3>Search</h3></div>
+            <div class="container">
+            <div id="search2" ></div>
+            <div id="search3" ></div>
+            <div id ="search" >
+                <h:form id="searchForm">
+                    <h:inputText id="stockInput" value="ATT"/>
+                    <h:commandButton id="search" onclick="search()" value="search" >
+                        <f:ajax execute="@this"/>
+                    </h:commandButton>
+                </h:form>
+                
+            </div>
+            <div id ="results" class="container"><h3></h3></div>
+            </div>
+        <div id = "footer">
+      <h1>© <a href="https://github.com/RustyRadio/" >RustyRadio</a> 2013. Source code located on github page. Free to use, spread and change.</h1>
+    </div>
+    </h:body>
+</html>

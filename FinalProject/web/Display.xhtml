@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+
+    <h:head>
+        <title>Stocks</title>
+
+        <link rel="stylesheet" href="style.css" />
+
+    </h:head>
+    <h:body>
+        <script type="text/javascript" src="jquery-1.10.1.js"></script> 
+        <script type="text/javascript" src="ajax.js"></script> 
+        <div id="header" class="container">
+            <div id="logo">
+                <h1><a href="#">Stock Market</a></h1>
+            </div>
+            <div id="menu">
+                <ul>
+                    <li><h:outputText value="#{beans.getUsername()}"/></li>
+                    <li><span id="money" style="color:green">Money:</span><h:outputText id="moneyText" value="#{beans.getMoney()}"/></li>
+                    <li onclick="BuyClick();">Buy Stock   </li>
+                    <li onclick="SellClick();">Sell Stock</li>
+                    <li><a href="History.xhtml" >Purchase History</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="banner-wrapper">
+            <div id="banner" class="container">
+                <h2>STOCKS</h2>
+                <div id="row-1">
+                    <div id="boxA">
+                        test
+                    </div>
+                    <div id="boxB">
+                        test
+                    </div>
+                    <div id="boxC">
+                        test
+                    </div>
+                    <div id="boxD">
+                        test
+                    </div>
+                </div>
+                <div id="row-2">
+                    <div id="boxE">
+                        test
+                    </div>
+                    <div id="boxF">
+                        test
+                    </div>
+                    <div id="boxG">
+                        test
+                    </div>
+                    <div id="boxH">
+                        test
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="page-wrapper">
+
+            <div id="page" class="container">
+                <div class="buyBoxA">
+                    <h:form id ="buyForm">
+                        <h3>Buy Stock</h3>
+                        <br />
+                        <h5>Stock Name:</h5><h:inputText id="stock" required="true" value="#{beans.stockName}" />
+                        <br />
+                        <h5>Amount:</h5><h:inputText required="true" id="amount" value="#{beans.amountStock}" />
+                        <br />
+                        <h:commandButton id="buyButton" value="Buy" onclick="validateBuy()">
+                            <f:ajax execute="@this" render=":moneyText :stockText"/>
+                        </h:commandButton>
+                    </h:form>
+                </div>
+                <div class="buyBoxB">
+                    <h:form id ="sellForm">
+                        <h3>Sell Stock</h3>
+                        <br />
+                        <h5>Stock Name:</h5><h:inputText id="stock" required="true" value="#{beans.stockName}" />
+                        <br />
+                        <h5>Amount:</h5><h:inputText required="true" id="amount" value="#{beans.amountStock}" />
+                        <br />
+                        <h:commandButton id="sellButton" value="Sell" onclick="validateSell()">
+                            <f:ajax execute="@this" render=":moneyText :stockText"/>
+                        </h:commandButton>
+                    </h:form>
+                </div>
+                <div class="buyBoxC">
+                    <h3>Search Stocks</h3>
+
+                    <a href="Search.xhtml"><div id="button"><h2>Search</h2></div></a>
+                </div>
+            </div>
+        </div>
+        <div id="result-page" >
+
+            <div id="resultsA"></div>
+            <div id="resultsC"></div>
+            <div id="resultsB"></div>
+        </div>
+        <div id="viewStocks" class="container">
+
+             <div class="front" id="front"><h2>My Stocks</h2></div>
+             <div class="back" id="back"><h3> <h:outputText id ="stockText" value="#{beans.viewStocks()}"/> </h3></div>
+
+
+        </div>
+        <script type="text/javascript">
+            function BuyClick() {
+                $('.buyBoxA').css({"box-shadow":"-10px -10px 10px black"});
+                $('html, body').animate({ scrollTop: $('.buyBoxA').offset().top }, 'slow');
+                setTimeout(function() {
+                    $('.buyBoxA').css({"box-shadow":"0px 0px 0px black"});
+                },4000);
+            }
+            function SellClick() {
+                $('.buyBoxB').css({"box-shadow":"-10px -10px 10px black"});
+                $('html, body').animate({ scrollTop: $('.buyBoxB').offset().top }, 'slow');
+                setTimeout(function() {
+                    $('.buyBoxB').css({"box-shadow":"0px 0px 0px black"});
+                },4000);
+            }
+            </script>
+        <div id = "footer">
+      <h1>© <a href="https://github.com/RustyRadio/" >RustyRadio</a> 2013. Source code located on github page. Free to use, spread and change.</h1>
+    </div>
+    </h:body>
+</html>

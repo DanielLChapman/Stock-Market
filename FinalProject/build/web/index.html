@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script>
+            var bUserName = false;
+            
+            function lookUp()
+            {
+                var xmlhttp;
+                if (window.XMLHttpRequest)
+                {
+                    // code for IE7+, Firefox, Chrome, Opera, Safari
+                    xmlhttp=new XMLHttpRequest();
+                }
+                else
+                {
+                    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                xmlhttp.onreadystatechange=function() //what happens when you get the respones
+                {
+                    if(xmlhttp.readyState==4 && xmlhttp.status==200)
+                        {
+                            if(xmlhttp.responseText == "good")
+                            {
+                                document.getElementById("badUserName").style.visibility="hidden";
+                                bUserName = true;
+                            }
+                            else
+                            {
+                                document.getElementById("badUserName").style.visibility="visible";
+                                bUserName = false;
+                            }
+                            
+                        }
+                };
+                xmlhttp.open("GET","LRservlet?task=1&userName=" + document.getElementById("RegUserName").value,true); 
+                xmlhttp.send();     
+            }
+
+            function toRegister()
+            {
+                document.getElementById("registerForm").style.visibility="visible";
+            }
+            function toServlet()
+            {
+               
+                var pass1 = document.getElementById("RegPassword").value;
+                var pass2 = document.getElementById("ConRegPassword").value;
+                var userName = document.getElementById("RegUserName").value;
+                
+                document.getElementById("invalidUserName").style.visibility="hidden";
+                document.getElementById("failedPassMatch").style.visibility="hidden";
+                
+                if(userName == null || userName.length == 0)
+                {
+                    alert("Made it in Username")
+                    document.getElementById("invalidUserName").style.visibility="visible";
+                }
+                else if(pass1 == null || pass1.length == 0)
+                {
+                    alert("Made it in Password = null")
+                    document.getElementById("failedPassMatch").style.visibility="visible";
+                }
+                else if(pass1 != pass2)
+                {
+                    alert("checked both passwords")
+                    document.getElementById("failedPassMatch").style.visibility="visible";  
+                }
+                else if(bUserName == false)
+                {
+                        //Stops the Registration from going through when the username alrady exists in the database.
+                }
+                else
+                {
+                    document.getElementById("registerNewUser").submit();
+                }
+            }
+            
+        </script>
+    </head>
+    <body>
+        <h1> Welcome </h1>
+        <form id="LoginForm" action="LRservlet?task=3" method="post">
+        Username: <input type="text" name="UserName"/><br>
+        Password: <input type="password" name="Password"/><br>
+        <input type="submit" id="Login" value="Login"/><br>
+        <input type="button" id="Register" value="Register" onClick="toRegister();"/>
+        </form>
+        
+        <div id="registerForm" style="visibility:hidden;">
+            <h1>Registration </h1>
+            <form id="registerNewUser" action="LRservlet?task=2" method="post" >
+                Desired Username: <input type="text" id="RegUserName" name="RegUserName" onkeyup="lookUp();"/><div id="badUserName" style="visibility:hidden; color:red;">Username already exists!</div> <div id="invalidUserName" style="visibility:hidden; color:red;">Invalid Username. Try again. </div>
+                Desired Password: <input type="password" id="RegPassword" name="RegPassword"/><br>
+                Confirm Password: <input type="password" id="ConRegPassword" name="ConRegPassword"/><div id="failedPassMatch" style="visibility:hidden; color:red;">Passwords did not match. Try again. </div><br>
+                <br>
+                Name:             <input type="text" name="name"/><br>
+                Starting Balance: <input type="text" name="startingBalnace"/><br>
+                <input type="button" name="sendRegInfo" value="Next" onClick="toServlet();" />
+            </form>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,283 @@
+html, body
+{
+    height: 100%;
+}
+
+body
+{
+    margin: 0px;
+    padding: 0px;
+    background: #FFF;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 12pt;
+    font-weight: 300;
+    color: #000000;
+    background: white;
+}
+
+
+h1, h2, h3
+{
+    margin: 0;
+    padding: 0;
+}
+
+li money {
+    color: green;
+}
+p, ol, ul
+{
+    margin-top: 0;
+}
+
+ol, ul
+{
+    padding: 0;
+    list-style: none;
+}
+
+.container
+{
+    overflow: hidden;
+    margin: 0em auto;
+    width: 1200px;
+}
+#row-1, #row-2 {
+    width:1000px;
+    float: left;
+    position: relative;
+    text-align: center;
+    alignment-adjust: middle;
+    font-size: 1em;
+    left: 5%;
+    font-family: Arial;
+}
+#boxA,
+#boxB,
+#boxC,
+#boxD,
+#boxE,
+#boxF,
+#boxG,
+#boxH
+{
+    left:5%;
+    box-shadow: -5px -5px 5px #888888;
+    width: 235px;
+}
+
+#boxA,
+#boxB,
+#boxC,
+#boxE,
+#boxF,
+#boxG
+{
+    float: left;
+    margin-right: 20px;
+}
+
+#boxD,
+#boxH
+{
+    float: right;
+}
+#header-wrapper
+{
+    background: white;
+}
+
+#header
+{
+    position: relative;
+    padding: 3em 0em;
+    background: white;
+}
+
+
+/*********************************************************************************/
+/* Logo                                                                          */
+/*********************************************************************************/
+
+#logo
+{
+    position: absolute;
+    top: 1em;
+    left: 0;
+    color: #0173B2;
+}
+
+#logo a {
+    text-decoration: none;
+    color: #0173B2
+}
+
+
+/*********************************************************************************/
+/* Menu                                                                          */
+/*********************************************************************************/
+
+#menu
+{
+    position: absolute;
+    top: 2em;
+    right: 0;
+}
+
+#menu ul
+{
+    display: inline-block;
+}
+
+#menu li
+{
+    display: block;
+    float: left;
+    text-align: center;
+    padding: 1em ;
+    text-decoration: none;
+    font-weight: 400;
+    color: rgba(0,0,0,.8);
+}
+
+#menu li a, #menu li span
+{
+    padding: 1em 1.5em;
+    text-decoration: none;
+    font-weight: 400;
+    color: rgba(0,0,0,.8);
+}
+
+#banner-wrapper
+{
+    overflow: hidden;
+    padding: 5em 0em 5em 0em;
+    background-color: orange;
+    background-size: 100% auto;
+    border-bottom:2px solid  black;
+    border-top:2px solid  black;
+}
+
+#banner .title
+{
+    margin-bottom: 3em;
+    text-align: center;
+}
+#banner h2 {
+    font-size: 5em;
+    font-family: Calibri;
+    color: white;
+    text-align: center;
+    padding-bottom: 30px;
+}
+#banner h3
+{
+    margin-bottom: 1em;
+    font-size: 1.4em;
+    font-weight: 600;
+    color: white;
+}
+
+
+#page-wrapper
+{
+    overflow: hidden;
+    padding: 5em 0em;
+}
+
+#page
+{
+}
+
+#page .title
+{
+    margin-bottom: 3em;
+    text-align: center;
+}
+
+#page h3
+{
+    margin-bottom: 1em;
+    font-size: 1.4em;
+    font-weight: 600;
+    color: rgba(0,0,0,.8);
+}
+.buyBoxA,
+.buyBoxB,
+.buyBoxC
+{
+    position:relative;
+    width: 350px;
+    left: 12%;
+}
+
+.buyBoxA,
+.buyBoxB
+{
+    float: left;
+    margin-right: 20px;
+}
+
+.buyBoxC
+{
+    float: left;
+}
+#button
+{
+    position:absolute;
+    top: 250%;
+    display: inline-block;
+    padding: 1em 2em 1em 2em;
+    background: #0173B2;
+    letter-spacing: 0.20em;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 0.90em;
+    color: #FFF;
+}
+#result-page {
+    background: grey;
+    height: 100px;
+    overflow: hidden;
+    backgrond-size: 100% auto;
+    color: white;
+    font-family: Calibri;
+    font-weight: 200px;
+    opacity: 0.6;
+    text-align: center;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    
+}
+#resultsA, #resultsB, #resultsC {
+        magin:auto;
+    position: inline;
+    float: left;
+    height: 100px;
+    width: 20%;
+    left: 40%;
+    top: 65%;
+}
+#viewStocks {
+    height: 20%;
+    color: black;
+    position: relative;
+    text-align: center;
+}
+#footer {
+  padding: 3em 1em;
+  z-index: 1;
+  text-align: center;
+  position:absolute;
+  bottom:0;
+  float: left;
+  width: 100%;
+  font-size: .3em;
+  overflow: hidden;
+}
+
+#footer h1 {
+  color: orange;
+  font-family: sans-serif;
+}
